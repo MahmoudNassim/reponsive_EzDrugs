@@ -91,9 +91,10 @@ class _RegisterLState extends State<RegisterL> {
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Center(
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Container(
+            child: ListView(
+          physics: BouncingScrollPhysics(),
+          children: [
+            Container(
               width: MediaQuery.of(context).size.width * 2,
               height: MediaQuery.of(context).size.height * 1,
               color: AppColor.white,
@@ -299,9 +300,9 @@ class _RegisterLState extends State<RegisterL> {
                               ))
                     ]),
               ),
-            ),
-          ),
-        ),
+            )
+          ],
+        )),
       ),
     );
   }

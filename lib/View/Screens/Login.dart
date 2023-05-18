@@ -58,8 +58,10 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-          child: Stack(
+      body: ListView(
+        physics: BouncingScrollPhysics(),
+        children: [
+          Stack(
         children: [
           Container(
             color: AppColor.primaryAppColor,
@@ -188,15 +190,18 @@ class _LoginScreenState extends State<LoginScreen> {
                               width: MediaQuery.of(context).size.width * .1,
                             ),
                             //Forget Password
-                            TextButton(
-                                onPressed: () {
-                                  Navigator.pushNamed(
-                                      context, ForgetPassword.RouteName);
-                                },
-                                child: Text(
-                                  'Forget Password ?',
-                                  style: TextStyle(color: AppColor.black),
-                                )),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 4),
+                              child: TextButton(
+                                  onPressed: () {
+                                    Navigator.pushNamed(
+                                        context, ForgetPassword.RouteName);
+                                  },
+                                  child: Text(
+                                    'Forget Password ?',
+                                    style: TextStyle(color: AppColor.black),
+                                  )),
+                            ),
                           ],
                         ),
 
@@ -257,7 +262,9 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ],
-      )),
+      )
+        ],
+      )
     );
   }
 }
